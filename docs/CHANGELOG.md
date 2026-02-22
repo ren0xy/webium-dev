@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-02-22
+
+### Added
+
+- UGUI and UIElements sandbox scenes for side-by-side backend comparison: `HelloWorld-UGUI`, `HelloWorld-UIElements`, `Interactive-UGUI`, `Interactive-UIElements`, `Styled-UGUI`, `Styled-UIElements`.
+- `WebiumSurfaceConfig` ScriptableObject assets (`WebiumConfig-UGUI.asset`, `WebiumConfig-UIElements.asset`) in `Assets/Config/`.
+- Scene folder reorganization: `Assets/Scenes/UGUI/` and `Assets/Scenes/UIElements/`.
+- Updated `CreateWebiumTestScene.cs` editor utility with menu items for both UGUI and UIElements scene creation.
+- Interactive and styled example UI projects exercising event handling, DOM mutations, and CSS rendering features.
+
+### Changed
+
+- Scenes now use `WebiumSurfaceConfig` for backend selection instead of hardcoded UGUI setup.
+
 ## [0.1.0] - 2026-02-16
 
 ### Added

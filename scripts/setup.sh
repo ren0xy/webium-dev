@@ -12,13 +12,13 @@ if [ ! -d "$WEBIUM_PATH" ]; then
 fi
 
 # Install npm dependencies
-pushd "$WEBIUM_PATH/packages/core" > /dev/null
+pushd "$WEBIUM_PATH/packages~/core" > /dev/null
 npm install
 npm run build:bundle
 popd > /dev/null
 
 # Place JS bundle as Unity resource
-mkdir -p "$WEBIUM_PATH/Resources"
-cp "$WEBIUM_PATH/build/webium-bootstrap.js" "$WEBIUM_PATH/Resources/webium-bootstrap.txt"
+mkdir -p "$WEBIUM_PATH/src/Webium.Unity.Runtime/Resources"
+cp "$WEBIUM_PATH/build~/webium-bootstrap.js" "$WEBIUM_PATH/src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt"
 
 echo "Setup complete. Open Unity and check for compilation errors."

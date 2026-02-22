@@ -10,13 +10,13 @@ if (-not (Test-Path $webiumPath)) {
 }
 
 # Install npm dependencies
-Push-Location (Join-Path (Join-Path $webiumPath "packages") "core")
+Push-Location (Join-Path (Join-Path $webiumPath "packages~") "core")
 npm install
 npm run build:bundle
 Pop-Location
 
 # Place JS bundle as Unity resource
-New-Item -ItemType Directory -Force -Path (Join-Path $webiumPath "Resources")
-Copy-Item (Join-Path (Join-Path $webiumPath "build") "webium-bootstrap.js") (Join-Path (Join-Path $webiumPath "Resources") "webium-bootstrap.txt")
+New-Item -ItemType Directory -Force -Path (Join-Path $webiumPath "src" | Join-Path -ChildPath "Webium.Unity.Runtime" | Join-Path -ChildPath "Resources")
+Copy-Item (Join-Path (Join-Path $webiumPath "build~") "webium-bootstrap.js") (Join-Path $webiumPath "src" | Join-Path -ChildPath "Webium.Unity.Runtime" | Join-Path -ChildPath "Resources" | Join-Path -ChildPath "webium-bootstrap.txt")
 
 Write-Host "Setup complete. Open Unity and check for compilation errors."

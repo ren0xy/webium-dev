@@ -29,7 +29,7 @@ webium-dev/                      # Unity project (this repo)
   scripts/                       # Setup automation
 
 ../webium/                       # UPM package (sibling repo)
-  packages/core/                 # @webium/core TypeScript package
+  packages~/core/                 # @webium/core TypeScript package
   src/                           # C# runtime, bridge, Unity backend
   package.json                   # UPM package manifest
 ```

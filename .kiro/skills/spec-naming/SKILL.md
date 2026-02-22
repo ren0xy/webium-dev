@@ -1,5 +1,5 @@
 ---
-inclusion: auto
+name: spec-naming
 description: Enforces zero-padded three-digit numeric prefix naming for spec folders under .kiro/specs/.
 ---
 
@@ -11,11 +11,14 @@ When creating new spec folders under `.kiro/specs/`, always use a zero-padded th
 .kiro/specs/<NNN>-<short-kebab-description>/
 ```
 
+## Rules
+
 - The prefix must be three digits, zero-padded (e.g., `000`, `001`, `012`).
 - The next number should increment by 1 from the highest existing prefix in `.kiro/specs/`.
 - The description should be lowercase kebab-case, concise, and reflect the feature or goal of the spec.
 
-Examples:
+## Examples
+
 - `000-sdd-framework-init`
 - `001-markdown-quirks-research`
 - `014-auth-token-refresh`

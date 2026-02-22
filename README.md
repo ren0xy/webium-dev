@@ -4,7 +4,7 @@ Development and testing environment for [Webium](https://github.com/ren0xy/webiu
 
 ## Status
 
-**v0.1.0** — Initial development project setup. Unity project shell with automated setup scripts, OpenUPM registry configuration for PuerTS, and local UPM package reference to the sibling `webium` repository. Ready for development and testing workflows.
+**v0.2.0** — Dual backend sandbox with UGUI and UIElements scenes. Sandbox scenes for both render backends (HelloWorld, Interactive, Styled) with `WebiumSurfaceConfig` ScriptableObject assets for backend selection. Side-by-side comparison of UGUI and UIElements rendering for development and testing.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ The setup scripts handle cloning dependencies, building the JS bundle, and copyi
 ## Dependencies / Prerequisites
 
 - **Webium** — the sibling `webium` repository, cloned alongside this project
-- **Node.js** — for npm (builds the JS bundle in `webium/packages/core/`)
+- **Node.js** — for npm (builds the JS bundle in `webium/packages~/core/`)
 - **.NET SDK** — for `dotnet build` (builds C# bridge DLLs)
 - **Unity 6+** (6000.0 or later)
 
@@ -46,8 +46,8 @@ After cloning both repos side by side, run the setup script from the `scripts/` 
 
 The script:
 1. Verifies `../webium` exists as a sibling directory
-2. Installs npm dependencies (`packages/core/`)
-3. Builds the JS bundle and copies it to `Resources/webium-bootstrap.txt`
+2. Installs npm dependencies (`packages~/core/`)
+3. Builds the JS bundle and copies it to `src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt`
 4. Builds `Webium.Core.dll` and `Webium.JSRuntime.dll` and copies them to `Plugins/`
 
 See [docs/unity-project-setup.md](docs/unity-project-setup.md) for detailed setup instructions and troubleshooting.
@@ -74,15 +74,15 @@ In the Unity Editor:
 
 **Webium → Create Test Scene**
 
-This creates a scene with a `WebiumSurface` and `WebiumBootstrapper` pre-configured to load the `examples/hello-world` sample from the Webium package.
+This creates a scene with a `WebiumSurface` and `WebiumBootstrapper` pre-configured to load the `examples~/hello-world` sample from the Webium package.
 
 ## Next Milestone
 
-v0.2.0 — Expanded test coverage and development tooling. Add integration test scenes, editor workflow improvements, and documentation for common development patterns. See [docs/ROADMAP.md](docs/ROADMAP.md) for details.
+v0.3.0 — Expanded testing and tooling. Integration test scenes for interactivity, editor workflow improvements, and CI-friendly validation. See [docs/ROADMAP.md](docs/ROADMAP.md) for details.
 
 ## Vision
 
-See [docs/VISION.md](docs/VISION.md) for the full project vision and goals.
+See [docs~/VISION.md](docs/VISION.md) for the full project vision and goals.
 
 ## License
 

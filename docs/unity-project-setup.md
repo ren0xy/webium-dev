@@ -40,9 +40,9 @@ Setup scripts handle npm dependency installation, JS bundle building, and resour
 ### What the Scripts Do
 
 1. Verify the sibling `../webium` clone exists
-2. Run `npm install` in `webium/packages/core`
-3. Run `npm run build:bundle` to produce `webium/build/webium-bootstrap.js`
-4. Copy the bundle to `webium/Resources/webium-bootstrap.txt` (Unity TextAsset)
+2. Run `npm install` in `webium/packages~/core`
+3. Run `npm run build:bundle` to produce `webium/build~/webium-bootstrap.js`
+4. Copy the bundle to `webium/src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt` (Unity TextAsset)
 
 If the script reports "Webium clone not found", clone webium first:
 
@@ -67,7 +67,7 @@ If you prefer to run the steps yourself instead of using the scripts:
 2. **Install npm dependencies and build the JS bundle:**
 
    ```bash
-   cd ../webium/packages/core
+   cd ../webium/packages~/core
    npm install
    npm run build:bundle
    ```
@@ -75,8 +75,8 @@ If you prefer to run the steps yourself instead of using the scripts:
 3. **Copy the bundle as a Unity TextAsset:**
 
    ```bash
-   mkdir -p ../webium/Resources
-   cp ../webium/build/webium-bootstrap.js ../webium/Resources/webium-bootstrap.txt
+   mkdir -p ../webium/src/Webium.Unity.Runtime/Resources
+   cp ../webium/build~/webium-bootstrap.js ../webium/src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt
    ```
 
    The `.txt` extension is required so Unity treats it as a `TextAsset`. The C# runtime loads it via `Resources.Load<TextAsset>("webium-bootstrap")`.
@@ -108,7 +108,7 @@ After setup, confirm the following in the Unity Editor:
 - [ ] Unity compiles with no errors in the Console window
 - [ ] PuerTS (`com.tencent.puerts.core`) appears in Window → Package Manager
 - [ ] TextMeshPro and UGUI appear in Package Manager (auto-resolved from webium's dependencies)
-- [ ] `webium/Resources/webium-bootstrap.txt` exists and contains JS code
+- [ ] `webium/src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt` exists and contains JS code
 - [ ] Opening a test scene and pressing Play shows rendered HTML content
 
 ## Rebuilding the JS Bundle
@@ -116,14 +116,14 @@ After setup, confirm the following in the Unity Editor:
 The bundle must be rebuilt whenever `@webium/core` TypeScript source changes:
 
 ```bash
-cd ../webium/packages/core
+cd ../webium/packages~/core
 npm run build:bundle
 ```
 
 Then re-copy to Resources:
 
 ```bash
-cp ../webium/build/webium-bootstrap.js ../webium/Resources/webium-bootstrap.txt
+cp ../webium/build~/webium-bootstrap.js ../webium/src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt
 ```
 
 Or re-run the setup script — it's safe to run multiple times.
@@ -135,4 +135,4 @@ Or re-run the setup script — it's safe to run multiple times.
 | "Webium clone not found" from setup script | Clone webium as a sibling: `git clone https://github.com/ren0xy/webium.git ../webium` |
 | Unity compilation errors after opening | Re-run the setup script to ensure the JS bundle is built and copied |
 | PuerTS not found in Package Manager | Check that `Packages/manifest.json` has the OpenUPM scoped registry entry |
-| `Resources/webium-bootstrap.txt` missing | Run `npm run build:bundle` in `webium/packages/core` and copy the output |
+| `src/Webium.Unity.Runtime/Resources/webium-bootstrap.txt` missing | Run `npm run build:bundle` in `webium/packages~/core` and copy the output |
